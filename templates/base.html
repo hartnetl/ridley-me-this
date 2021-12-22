@@ -35,6 +35,7 @@
     {% endblock %}
 
     <title>Ridley me this{% block extra_title %}{% endblock %}</title>
+
   </head>
 
   <body>
@@ -44,6 +45,9 @@
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}
+
+    {% block content %}
+    {% endblock %}
     
    
   </body>
