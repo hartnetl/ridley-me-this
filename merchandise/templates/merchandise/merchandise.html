@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- This container has two rows: One to contain the page title and any currently selected categories and one for the products themselves.  -->
+<div class="container-fluid">
+
+    <!-- Header row  -->
+
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="logo-font">Products</h2>
+
+            <!-- category badges  -->
+
+            {% for c in current_categories %}
+            <a class="text-decoration-none" href="{% url 'merch' %}?category={{ c.name }}">
+                <span
+                    class="p-2 mt-2 badge badge-white rounded-0 border border-dark">{{ c.friendly_name }}</span>
+            </a>
+            {% endfor %}
+
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+
+    <!-- Products row  -->
+    <div class="row">
+        <!-- This row has 2 rows  -->
+        <div class="product-container col-10 offset-1">
+
+            <!-- row 1 - sort options  -->
+
+            <div class="row mt-1 mb-2">
+                <div class="product-container col-10 offset-1">
+                    <div class="row mt-1 mb-2">
+                    </div>
+                </div>
+
+                <!-- row 2 - products  -->
+
+                <div class="row">
+                    {% for merch in merchandise %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100 border-0">
+                            {% if merch.image %}
+                            <a href=" ">
+                                <img class="card-img-top img-fluid" src="{{ merch.image.url }}"
+                                    alt="{{ merch.name }}">
+                            </a>
+                            {% else %}
+                            <a href=" ">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ merch.name }}">
+                            </a>
+                            {% endif %}
+                            <div class="card-body pb-0">
+                                <p class="mb-0">{{ merch.name }}</p>
+                            </div>
+                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="lead mb-0 text-left font-weight-bold">${{ merch.price }}</p>
+
+                                        {% if merch.category %}
+                                        <p class="small mt-1 mb-0">
+                                            <!-- We want to display the category to users with the friendly name, but use the programmatic one as the href -->
+                                            <a class="text-muted"
+                                                href="{% url 'merchs' %}?category={{ merch.category.name }}">
+                                                <i class="fas fa-tag mr-1"></i>{{ merch.category.friendly_name }}
+                                            </a>
+                                        </p>
+                                        {% endif %}
+
+                                        {% if merch.rating %}
+                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ merch.rating }} /
+                                            5</small>
+                                        {% else %}
+                                        <small class="text-muted">No Rating</small>
+                                        {% endif %}
+
+                                        {% if request.user.is_superuser %}
+                                            <small class="ml-3">
+                                                <a href=" ">Edit</a> | 
+                                                <a class="text-danger" href=" ">Delete</a>
+                                            </small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- This sets the size of the hr, depending on how many columns are there  -->
+
+                    {% if forloop.counter|divisibleby:1 %}
+                    <div class="col-12 d-sm-none mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-12 d-none d-xl-block mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btt-button shadow-sm rounded-0 border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>	
+</div>
+{% endblock %}

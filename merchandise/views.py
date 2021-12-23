@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Merch, Donate
 
 
-def all_products(request):
+def all_merch(request):
     """ A view to show all products, including sorting and search queries """
 
     merchandise = Merch.objects.all()
@@ -13,4 +13,4 @@ def all_products(request):
         'donations': donations,
     }
 
-    return render(request, 'merchandise/merch.html', context)
+    return render(request, 'merchandise/merchandise.html', context)
