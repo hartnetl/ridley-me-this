@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Category, Merch, Donate
 
+
 class MerchAdmin(admin.ModelAdmin):
     list_display = (
         'name',
