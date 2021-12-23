@@ -1,0 +1,58 @@
+<!-- the main-nav id matches the id of the toggle button in the base templates  -->
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
+
+        <!-- Home button for mobile  -->
+        <li class="nav-item d-block d-md-none">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
+                Home
+            </a>
+        </li>
+
+        <!-- sponsor menu item -->
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sponsor a turtle
+            </a>
+            <!-- <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <!-- sort price in ascending order 
+                <a href=" " class="dropdown-item">By Price</a> -'-> 
+                <!-- sort rating in descending order  -'->
+                <a href=" " class="dropdown-item ">By Rating</a>
+                <a href=" " class="dropdown-item ">By Category</a>
+                <a href=" " class="dropdown-item">All Products</a>
+            </div> -->
+        </li>
+
+        <!-- Support us dropdown -->
+
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Support us
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+                <!-- The links first point to the products URL. Then a question mark to indicate we're about to pass the category parameter.
+                Followed by activewear and essentials separated by a comma. This syntax ensures we end up with a comma-separated string in the view. -->
+                <a href=" " class="dropdown-item">Merchandise</a>
+                <a href=" " class="dropdown-item">Donate</a>
+                <a href=" " class="dropdown-item">Browse All</a>
+            </div>
+        </li>
+
+        <!-- About us menu  -->
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                About
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
+                <a href=" " class="dropdown-item">About us</a>
+                <a href=" " class="dropdown-item">Contact</a>
+                <a href=" " class="dropdown-item">Learn More</a>
+            </div>
+        </li>
+
+    </ul>
+</div>
