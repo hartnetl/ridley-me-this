@@ -1,3 +1,5 @@
+/* base css  */
+
 html {
     height: 100%;
 }
@@ -11,9 +13,8 @@ body {
         url("/media/turtle-swimming.jpg") no-repeat center center fixed;
     color: #555;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: calc(100vh - 5px);
 }
-
 
 #home-topnav {
     background-color: rgba(255,255,255,0);
@@ -33,6 +34,10 @@ body {
 
 .main-logo-link {
     width: fit-content;
+}
+
+#delivery-banner {
+    background-color: rgba(85, 85, 85, .3);
 }
 
 .shop-now-button {
@@ -98,6 +103,10 @@ same color since it's the only one now that doesn't match. */
 input[name='q']::placeholder {
     color: #aab7c4;
 }
+
+/* Home page */
+
+
 
 /* ------------------------------- bootstrap toasts */
 
