@@ -33,10 +33,8 @@
                 Support us
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <!-- The links first point to the products URL. Then a question mark to indicate we're about to pass the category parameter.
-                Followed by activewear and essentials separated by a comma. This syntax ensures we end up with a comma-separated string in the view. -->
-                <a href="{% url 'merch' %}" class="dropdown-item">Merchandise</a>
-                <a href=" " class="dropdown-item">Donate</a>
+                <a href="{% url 'merch' %}?category=merchandise" class="dropdown-item">Merchandise</a>
+                <a href="{% url 'merch' %}?category=donations" class="dropdown-item">Donate</a>
                 <a href="{% url 'merch' %}" class="dropdown-item">Browse All</a>
             </div>
         </li>
