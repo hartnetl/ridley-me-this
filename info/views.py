@@ -8,6 +8,7 @@ def about_page(request):
 
     return render(request, template)
 
+
 def learn_more(request):
     """ A view to show page where users can learn more about eco living, turtles etc """
 
