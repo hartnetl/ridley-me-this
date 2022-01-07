@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 
 
@@ -27,6 +28,7 @@ class Turtles(models.Model):
     image = models.ImageField(null=True, blank=True)
     sku = models.CharField(max_length=254, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    sponsored_status = models.BooleanField(default=False)
     
     def __str__(self):
         return self.title
@@ -42,11 +44,7 @@ class turtle_sponsor(models.Model):
     name = models.CharField(max_length=30)
     sponsorship_start = models.DateField(auto_now=False, auto_now_add=False)
     sponsorship_end = models.DateField(auto_now=False, auto_now_add=False)
-    sponsored_by = models.CharField(max_length=50)
+    sponsored_by = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
-
-    
-    
-
