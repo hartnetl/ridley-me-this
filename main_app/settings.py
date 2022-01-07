@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'info',
     'contact',
     'turtles',
+    'django_countries'
 ]
 
 MIDDLEWARE = [
