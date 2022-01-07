@@ -117,3 +117,12 @@ input[name='q']::placeholder {
     /* always on top  */
     z-index: 99999999999;
 }
+
+/* ------------------------------- contact form */
+
+input[type=text], input[type=email], textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+   }
