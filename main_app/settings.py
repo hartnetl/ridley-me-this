@@ -82,6 +82,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'basket.context.basket_contents',
             ],
         },
     },
@@ -184,3 +186,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
+
+
+FREE_DELIVERY_THRESHOLD = 30
+STANDARD_DELIVERY_PERCENTAGE = 5
