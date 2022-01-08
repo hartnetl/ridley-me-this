@@ -106,13 +106,12 @@
                             </div>
                         </li>
 
-                        <!-- cart  -->
+                        <!-- Shopping Basket  -->
                         <li class="list-inline-item">
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                                href="">
+                                href="{% url 'view_basket' %}">
                                 <div class="text-center">
-                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-
+                                    <div><i class="fas fa-shopping-basket fa-lg"></i></div>
                                 </div>
                                 <p class="my-0">
                                     {% if grand_total %}
