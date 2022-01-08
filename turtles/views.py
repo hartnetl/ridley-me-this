@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Turtles
+
 
 def turtles(request):
     """ A view to show turtle page with available and sponsored turtles """
@@ -11,3 +12,15 @@ def turtles(request):
     }
 
     return render(request, 'turtles/turtles.html', context)
+
+
+def turtle_detail(request, turtle_id):
+    """ A view to show each turtle in more detail """
+
+    turtle = get_object_or_404(Turtles, pk=turtle_id)
+
+    context = {
+        'turtle': turtle,
+    }
+
+    return render(request, 'turtles/turtle_detail.html', context)
