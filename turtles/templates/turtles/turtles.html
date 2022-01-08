@@ -25,7 +25,7 @@
 
     <!-- Available turtles row  -->
     <div class="row">
-        <div class="product-container col-10 offset-1">
+        <div class="turtle-container col-10 offset-1">
             <div class="row">
                 {% for turtle in turtles %}
                     {% if not turtle.sponsored_status %}
@@ -99,7 +99,7 @@
 
     <!-- Sponsored turtles row  -->
     <div class="row">
-        <div class="product-container col-10 offset-1">
+        <div class="turtle-container col-10 offset-1">
             <div class="row">
                 {% for turtle in turtles %}
                     {% if turtle.sponsored_status %}

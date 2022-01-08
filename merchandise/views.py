@@ -24,3 +24,15 @@ def all_merch(request):
     }
 
     return render(request, 'merchandise/merchandise.html', context)
+
+
+def merch_detail(request, merch_id):
+    """ A view to show individual merchandise details """
+
+    merch = get_object_or_404(Merch, pk=merch_id)
+
+    context = {
+        'merch': merch,
+    }
+
+    return render(request, 'merchandise/merch_detail.html', context)
