@@ -4,6 +4,8 @@ html {
     height: 100%;
 }
 
+
+
 body {
     background: 
         linear-gradient(
@@ -13,7 +15,11 @@ body {
         url("/media/turtle-swimming.jpg") no-repeat center center fixed;
     color: #555;
     background-size: cover;
-    height: calc(100vh - 5px);
+    height: calc(100vh - 164px) !important;
+}
+
+.header-container {
+    padding-top: 164px;
 }
 
 #home-topnav {
