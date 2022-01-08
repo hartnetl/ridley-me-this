@@ -43,7 +43,7 @@
                                 {% endif %}
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ turtle.title }}</p>
-                                    <p class="mb-0">Tagged in: {{ turtle.location_tagged }}</p>
+                                    <p class="mb-0">Tagged in: {{ turtle.location_tagged.name }}</p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
@@ -117,8 +117,8 @@
                                 {% endif %}
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ turtle.title }}</p>
-                                    <p class="mb-0">{{ turtle.name }}</p>
-                                    <p class="mb-0">Tagged in: {{ turtle.location_tagged }}</p>
+                                    <p class="mb-0">Name given: {{ turtle.name }}</p>
+                                    <p class="mb-0">Tagged in: {{ turtle.location_tagged.name }}</p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
