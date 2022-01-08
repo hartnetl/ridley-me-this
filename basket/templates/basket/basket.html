@@ -2,22 +2,43 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-                
-            </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-10 offset-1 my-auto">
-                <h2>Shopping basket</h2>
-            </div>
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-10 offset-1 my-auto">
+            <h2>Shopping basket</h2>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            {% if basket_items %}
+            <div class="table-responsive rounded"></div>
+            {% else %}
+            <p class="lead mb-5">Your basket is empty.</p>
+            <a href="{% url 'turtles' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Find a turtle to sponsor</span>
+            </a>
+            <a href="{% url 'merch' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Browse merchandise</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
