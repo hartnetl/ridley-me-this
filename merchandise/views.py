@@ -1,7 +1,7 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.db.models import Q
 from django.contrib import messages
-from turtles.models import Turtles
+from turtles.models import Turtle
 from .models import Merch, Donate, Category
 
 
@@ -10,7 +10,7 @@ def all_merch(request):
 
     merchandise = Merch.objects.all()
     donations = Donate.objects.all()
-    turtles = Turtles.objects.all()
+    turtles = Turtle.objects.all()
 
     categories = None
     query = None

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from merchandise.models import Merch, Donate
-from turtles.models import Turtles
+from turtles.models import Turtle
 
 
 def view_basket(request):

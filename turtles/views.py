@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Turtles
+from .models import Turtle
 
 
 def turtles(request):
     """ A view to show turtle page with available and sponsored turtles """
 
-    turtles = Turtles.objects.all()
+    turtles = Turtle.objects.all()
 
     context = {
         'turtles': turtles,
@@ -17,7 +17,7 @@ def turtles(request):
 def turtle_detail(request, turtle_id):
     """ A view to show each turtle in more detail """
 
-    turtle = get_object_or_404(Turtles, pk=turtle_id)
+    turtle = get_object_or_404(Turtle, pk=turtle_id)
 
     context = {
         'turtle': turtle,
