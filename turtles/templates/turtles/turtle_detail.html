@@ -42,6 +42,66 @@
                 <p class="mb-0">Location tagged: {{ turtle.location_tagged.name }}</p>
                 <p class="mb-0">Date tagged: {{ turtle.date_tagged }}</p>
                 <p class="mt-3">About this turtle: <br> {{ turtle.description }}</p>
+
+
+                <!-- add item to basket  -->
+
+                <form class="form" action="{% url 'add_merch_to_basket' turtle.id %}" method="POST">
+                    {% csrf_token %}
+                    <!-- form is a single row with two columns  -->
+                    <div class="form-row">
+
+                        <!-- col 1 = quantity input  -->
+                        <div class="col-12">
+                            <p class="mt-3"><strong>Quantity:</strong></p>
+                            <div class="form-group w-50">
+                                <div class="input-group">
+
+                                    <div class="input-group-prepend">
+                                        <!-- These IDs are for the javascript  -->
+                                        <button class="decrement-qty btn btn-black rounded-0" 
+                                            data-item_id="{{ turtle.id }}" id="decrement-qty_{{ turtle.id }}">
+                                            <span class="icon">
+                                                <i class="fas fa-minus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input class="form-control qty_input" type="number"
+                                        name="quantity" value="1" min="1" max="99"
+                                        data-item_id="{{ turtle.id }}"
+                                        id="id_qty_{{ turtle.id }}">
+
+                                    <div class="input-group-append">
+                                        <button class="increment-qty btn btn-black rounded-0"
+                                            data-item_id="{{ turtle.id }}" id="increment-qty_{{ turtle.id }}">
+                                            <span class="icon">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- col 2 = submit button + return shopping button -->
+                        <div class="col">
+                            <a href="{% url 'turtles' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Sponsor turtle</span>
+                            </a>
+                            <a href="{% url 'merch' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Browse merch</span>
+                            </a>
+                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Basket">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
