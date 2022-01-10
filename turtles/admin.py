@@ -13,7 +13,7 @@ class TurtlesAdmin(admin.ModelAdmin):
         'sponsored_status',
     )
 
-    ordering = ('species',)
+    ordering = ('sponsored_status',)
 
 
 class TurtleSponsor(admin.ModelAdmin):

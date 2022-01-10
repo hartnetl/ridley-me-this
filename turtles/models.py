@@ -17,6 +17,8 @@ class Turtles(models.Model):
         ("kemp", "Kemp's Ridley"),
     ]
 
+    category = models.ForeignKey('merchandise.Category', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
     title = models.CharField(max_length=254)
     turtle_id = models.CharField(max_length=6)
     name = models.CharField(max_length=30, blank=True, null=True)

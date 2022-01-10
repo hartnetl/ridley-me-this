@@ -5,8 +5,9 @@ from django.conf import settings
 def basket_contents(request):
     """
     This is a context processor.
-    It is used to make this dictionary available to all templates across the entire application
-    """ 
+    It is used to make this dictionary available to all templates across the
+    entire application
+    """
     basket_items = []
     total = 0
     item_count = 0
