@@ -1,5 +1,8 @@
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from merchandise.models import Merch, Donate
+from turtles.models import Turtle
 
 
 def basket_contents(request):
@@ -11,6 +14,21 @@ def basket_contents(request):
     basket_items = []
     total = 0
     item_count = 0
+    basket = request.session.get('basket', {})
+
+    for item_id, quantity in basket.items():
+        merch = get_object_or_404(Merch, pk=item_id)
+        donations = get_object_or_404(Donate, pk=item_id)
+        # turtle = get_object_or_404(Turtle, pk=item_id)
+        total += quantity * merch.price
+        item_count += quantity
+        basket_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'donations': donations,
+            # 'turtle': turtle,
+            'merch': merch
+        })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
