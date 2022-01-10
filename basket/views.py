@@ -15,6 +15,7 @@ def add_merch_to_basket(request, item_id):
 
     merch = get_object_or_404(Merch, pk=item_id)
     turtle = get_object_or_404(Turtle, pk=item_id)
+    donate = get_object_or_404(Donate, pk=item_id)
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
